@@ -1,0 +1,5 @@
+numpy
+matplotlib
+scipy
+botorch
+git+https://github.com/facebook/Ax.git
