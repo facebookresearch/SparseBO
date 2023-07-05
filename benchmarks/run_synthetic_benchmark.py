@@ -34,6 +34,7 @@ def nnz_exact(x: List[float], sparse_point: List[float]):
 
 def run_single_objective_branin_benchmark(
     strategy_name: str,
+    irep: int,
     num_sobol_trials: int = 8,
     num_trials: int = 100,
     augment_dim: int = 10,
@@ -127,6 +128,7 @@ def run_single_objective_branin_benchmark_reps(
         res[strategy].append(
             run_single_objective_branin_benchmark(
                 strategy_name=strategy,
+                irep=irep,
                 num_sobol_trials=num_sobol_trials,
                 num_trials=num_trials,
                 augment_dim=augment_dim,
@@ -139,6 +141,7 @@ def run_single_objective_branin_benchmark_reps(
 
 def run_single_objective_hartmann6_benchmark(
     strategy_name: str,
+    irep: int,
     num_sobol_trials: int = 8,
     num_trials: int = 100,
     augment_dim: int = 20,
@@ -230,6 +233,7 @@ def run_single_objective_hartmann6_benchmark_reps(
         res[strategy].append(
             run_single_objective_hartmann6_benchmark(
                 strategy_name=strategy,
+                irep=irep,
                 num_sobol_trials=num_sobol_trials,
                 num_trials=num_trials,
                 augment_dim=augment_dim,
@@ -249,4 +253,5 @@ if __name__ == '__main__':
         num_sobol_trials=8,
         num_trials=20,
         reps=1,
+        strategy_args={},
     )
