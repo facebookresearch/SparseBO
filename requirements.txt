@@ -1,5 +1,5 @@
 numpy
 matplotlib
 scipy
-git+https://github.com/facebook/Ax.git 
-git+https://github.com/pytorch/botorch.git
+botorch
+git+https://github.com/facebook/Ax.git
