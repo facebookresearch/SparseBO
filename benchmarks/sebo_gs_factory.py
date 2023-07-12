@@ -9,7 +9,7 @@ from typing import Optional
 import torch
 from ax.modelbridge.generation_strategy import GenerationStep, GenerationStrategy
 from ax.modelbridge.registry import Models
-# from ax.models.torch.botorch_modular.sebo import SEBOAcquisition
+from ax.models.torch.botorch_modular.sebo import SEBOAcquisition
 from ax.models.torch.botorch_modular.surrogate import Surrogate
 from botorch.acquisition.multi_objective.monte_carlo import (
     qNoisyExpectedHypervolumeImprovement,
