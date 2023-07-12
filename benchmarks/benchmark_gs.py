@@ -94,52 +94,52 @@ def get_generation_strategy(
             ),
             torch_device=torch_device,
         )
-    # elif "NEHVI_L1_MOO_SAAS" in strategy_name:
-    #     gs = get_sebo_gs(
-    #         sparse_point=sparse_point,
-    #         penalty_name="L1_norm",
-    #         num_sobol_trials=num_sobol_trials,
-    #         gp_model_name="SAAS",
-    #         sparsity_threshold=strategies_args.get(
-    #             "sparsity_threshold",
-    #             sparse_point.shape[-1],
-    #         ),
-    #         torch_device=torch_device,
-    #     )
-    # elif "NEHVI_L0_MOO_SAAS" in strategy_name:
-    #     gs = get_sebo_gs(
-    #         sparse_point=sparse_point,
-    #         penalty_name="L0_norm",
-    #         num_sobol_trials=num_sobol_trials,
-    #         gp_model_name="SAAS",
-    #         sparsity_threshold=strategies_args.get(
-    #             "sparsity_threshold",
-    #             sparse_point.shape[-1],
-    #         ),
-    #         torch_device=torch_device,
-    #     )
-    # elif "NEHVI_L1_MOO_GP" in strategy_name:
-    #     gs = get_sebo_gs(
-    #         sparse_point=sparse_point,
-    #         penalty_name="L1_norm",
-    #         num_sobol_trials=num_sobol_trials,
-    #         gp_model_name="GP",
-    #         sparsity_threshold=strategies_args.get(
-    #             "sparsity_threshold",
-    #             sparse_point.shape[-1],
-    #         ),
-    #         torch_device=torch_device,
-    #     )
-    # elif "NEHVI_L0_MOO_GP" in strategy_name:
-    #     gs = get_sebo_gs(
-    #         sparse_point=sparse_point,
-    #         penalty_name="L0_norm",
-    #         num_sobol_trials=num_sobol_trials,
-    #         gp_model_name="GP",
-    #         sparsity_threshold=strategies_args.get(
-    #             "sparsity_threshold",
-    #             sparse_point.shape[-1],
-    #         ),
-    #         torch_device=torch_device,
-    #     )
+    elif "NEHVI_L1_MOO_SAAS" in strategy_name:
+        gs = get_sebo_gs(
+            sparse_point=sparse_point,
+            penalty_name="L1_norm",
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="SAAS",
+            sparsity_threshold=strategies_args.get(
+                "sparsity_threshold",
+                sparse_point.shape[-1],
+            ),
+            torch_device=torch_device,
+        )
+    elif "NEHVI_L0_MOO_SAAS" in strategy_name:
+        gs = get_sebo_gs(
+            sparse_point=sparse_point,
+            penalty_name="L0_norm",
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="SAAS",
+            sparsity_threshold=strategies_args.get(
+                "sparsity_threshold",
+                sparse_point.shape[-1],
+            ),
+            torch_device=torch_device,
+        )
+    elif "NEHVI_L1_MOO_GP" in strategy_name:
+        gs = get_sebo_gs(
+            sparse_point=sparse_point,
+            penalty_name="L1_norm",
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="GP",
+            sparsity_threshold=strategies_args.get(
+                "sparsity_threshold",
+                sparse_point.shape[-1],
+            ),
+            torch_device=torch_device,
+        )
+    elif "NEHVI_L0_MOO_GP" in strategy_name:
+        gs = get_sebo_gs(
+            sparse_point=sparse_point,
+            penalty_name="L0_norm",
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="GP",
+            sparsity_threshold=strategies_args.get(
+                "sparsity_threshold",
+                sparse_point.shape[-1],
+            ),
+            torch_device=torch_device,
+        )
     return gs
