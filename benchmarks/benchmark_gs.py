@@ -18,6 +18,7 @@ from baseline_gs_factory import (
 )
 from external_l1_gs_factory import get_er_l1_gp_gs, get_er_l1_saas_gs
 from internal_l1_gs_factory import get_ir_l1_gp_gs, get_ir_l1_saas_gs
+from ir_er_l0_gs_factory import get_er_l0_gs, get_ir_l0_gs
 from sebo_gs_factory import get_sebo_gs
 
 logger: Logger = get_logger(__name__)
@@ -76,6 +77,26 @@ def get_generation_strategy(
             ),
             torch_device=torch_device,
         )
+    elif "L0_internal_SAAS" in strategy_name:
+        gs = get_ir_l0_gs(
+            sparse_point=sparse_point,
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="SAAS",
+            regularization_parameter=strategies_args.get(
+                "regularization_parameter", 0.1
+            ),
+            torch_device=torch_device,
+        )
+    elif "L0_internal_GP" in strategy_name:
+        gs = get_ir_l0_gs(
+            sparse_point=sparse_point,
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="GP",
+            regularization_parameter=strategies_args.get(
+                "regularization_parameter", 0.1
+            ),
+            torch_device=torch_device,
+        )
     elif "L1_external_SAAS" in strategy_name:
         gs = get_er_l1_saas_gs(
             num_sobol_trials=num_sobol_trials,
@@ -89,6 +110,26 @@ def get_generation_strategy(
         gs = get_er_l1_gp_gs(
             num_sobol_trials=num_sobol_trials,
             sparse_point=sparse_point,
+            regularization_parameter=strategies_args.get(
+                "regularization_parameter", 0.1
+            ),
+            torch_device=torch_device,
+        )
+    elif "L0_external_SAAS" in strategy_name:
+        gs = get_er_l0_gs(
+            sparse_point=sparse_point,
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="SAAS",
+            regularization_parameter=strategies_args.get(
+                "regularization_parameter", 0.1
+            ),
+            torch_device=torch_device,
+        )
+    elif "L0_external_GP" in strategy_name:
+        gs = get_er_l0_gs(
+            sparse_point=sparse_point,
+            num_sobol_trials=num_sobol_trials,
+            gp_model_name="GP",
             regularization_parameter=strategies_args.get(
                 "regularization_parameter", 0.1
             ),
