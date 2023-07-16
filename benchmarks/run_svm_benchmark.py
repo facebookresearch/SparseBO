@@ -46,7 +46,7 @@ class SVRObjective:
 
 
 def load_uci_data(seed, n_features):
-    df = pd.read_csv("slice_localization_data.csv", index_col=[0])
+    df = pd.read_csv("data/slice_localization_data.csv", index_col=[0])
     print(df.head())
     data = df.to_numpy()
 
