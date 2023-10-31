@@ -91,7 +91,8 @@ ENV/
 # Pycharm
 .idea/
 
-**/.DS_Store
+.DS_Store
+benchmarks/.DS_Store
 
 # Projects
 benchmarks/results/*.json
